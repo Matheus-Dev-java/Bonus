@@ -1,0 +1,7 @@
+
+<!doctype html><html><body><h1>Agenda</h1><input id='who' placeholder='Name'><input id='email' placeholder='Email'><input id='date' type='date'><button onclick='add()'>Add</button><ul id='l'></ul>
+<script>
+function add(){const who=document.getElementById('who').value; const email=document.getElementById('email').value; const date=document.getElementById('date').value; const l=JSON.parse(localStorage.getItem('l')||'[]'); l.push({who,email,date}); localStorage.setItem('l', JSON.stringify(l)); render();}
+function render(){const l=JSON.parse(localStorage.getItem('l')||'[]'); document.getElementById('l').innerHTML = l.map(x=>'<li>'+x.who+' - '+x.date+' - <a href="mailto:'+x.email+'?subject=Reminder">Remind</a></li>').join('');}
+render();
+</script></body></html>

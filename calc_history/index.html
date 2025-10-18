@@ -1,0 +1,6 @@
+
+<!doctype html><html><body><h1>CalcHistory</h1><input id='a'><input id='b'><button onclick='add()'>Sum</button><ul id='h'></ul>
+<script>
+function add(){const a=Number(document.getElementById('a').value), b=Number(document.getElementById('b').value); const r=a+b; const h=JSON.parse(localStorage.getItem('h')||'[]'); h.push(r); localStorage.setItem('h', JSON.stringify(h)); render();}
+function render(){const h=JSON.parse(localStorage.getItem('h')||'[]'); document.getElementById('h').innerHTML = h.map(x=>'<li>'+x+'</li>').join(''); } render();
+</script></body></html>
